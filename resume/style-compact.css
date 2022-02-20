@@ -34,7 +34,7 @@ div.pagebreak {
 p {
 	font-size: 1em;
 	line-height: 1.4em;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 	color: #444;
 }
 
@@ -177,6 +177,17 @@ section:last-child {
 
 .keySkills ul li {
 	margin-bottom: 3px;
+}
+
+li {
+    margin-left: 10px;
+    color: #111111;
+}
+.bulletDetails li::before {
+    content: "•"; 
+    color: #999999;
+    display: inline-block; width: 1em;
+    margin-left: -1em
 }
 
 .keySkills.bullets {
@@ -381,4 +392,8 @@ section:last-child {
 	-webkit-animation-delay: 0, 2.5s;
 	-moz-animation-delay: 0, 2.5s;
 	animation-delay: 0, 2.5s;
+}
+
+p.detail {
+    margin-left: 10px;
 }
