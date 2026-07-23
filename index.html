@@ -1,245 +1,783 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edward King | Software Engineer & Educator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --secondary: #64748b;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --accent: #3b82f6;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ed King | Teaching Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --secondary: #06b6d4;
+      --bg-dark: #0f172a;
+      --bg-card: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: #fff;
-            scroll-behavior: smooth;
-        }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f8fafc;
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
 
-        /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
-        }
+    /* Hero Header */
+    .hero {
+      position: relative;
+      color: #ffffff;
+      padding: 80px 20px 100px;
+      text-align: center;
+      overflow: hidden;
+      background-image: linear-gradient(135deg, rgba(15,23,42,0.78), rgba(49,46,129,0.75)), url('images/quality/header-landing.jpg');
+      background-size: cover;
+      background-position: center 38%;
+    }
 
-        .logo { font-weight: 700; font-size: 1.2rem; color: var(--primary); }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { text-decoration: none; color: var(--secondary); font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
 
-        /* Hero Section */
-        header {
-            padding: 100px 10% 60px;
-            background: linear-gradient(135deg, #f1f5f9 0%, #fff 100%);
-            text-align: center;
-        }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
 
-        h1 { font-size: 3rem; margin-bottom: 0.5rem; color: var(--dark); }
-        .subtitle { font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; }
-        .contact-bar { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-        .contact-bar a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
 
-        /* General Layout */
-        section { padding: 80px 10%; }
-        .section-title { 
-            font-size: 2rem; 
-            margin-bottom: 3rem; 
-            border-left: 5px solid var(--primary); 
-            padding-left: 15px;
-        }
+    .hero p {
+      font-size: 1.15rem;
+      color: #e0e7ff;
+    }
 
-        /* Cards */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .card h3 { margin-bottom: 0.5rem; color: var(--dark); }
-        .date { color: var(--primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; display: block; }
-        
-        /* Tags/Skills */
-        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-        .tag {
-            background: #eff6ff;
-            color: var(--primary);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
+    /* Tab switcher */
+    .tab-switcher {
+      max-width: 560px;
+      margin: -34px auto 40px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(15,23,42,0.12);
+      padding: 6px;
+    }
 
-        /* Education & Language */
-        .edu-item { margin-bottom: 2rem; }
+    .tab-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-muted);
+      padding: 12px 14px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
 
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 40px 10%;
-            text-align: center;
-        }
+    .tab-btn:hover {
+      color: var(--primary-dark);
+    }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .nav-links { display: none; } /* Simplified for mobile */
-            section { padding: 60px 5%; }
-        }
-    </style>
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* Jump nav (within Quality tab) */
+    .jump-nav {
+      margin: 0 0 32px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .jump-nav a {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      transition: all 0.2s ease;
+    }
+
+    .jump-nav a:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Standard section header (own banner image) */
+    .standard-banner {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      color: #fff;
+      padding: 48px 32px;
+      margin-bottom: 24px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .standard-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,23,42,0.72), rgba(67,56,202,0.68));
+    }
+
+    .standard-banner-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .standard-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #c7d2fe;
+      margin-bottom: 10px;
+    }
+
+    .standard-banner h2 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-color);
+    }
+
+    .standard-block {
+      margin-bottom: 56px;
+    }
+
+    .element {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border-color);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .element:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .element-tag {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .element-text p {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .element-text strong.rationale-label {
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 4px;
+      color: var(--primary-dark);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .element-media img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .element-media {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background-color: #f1f5f9;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      font-size: 13px;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+      width: fit-content;
+    }
+
+    .btn-link:hover {
+      background-color: #e0e7ff;
+      border-color: #c7d2fe;
+    }
+
+    /* Course Resources tab */
+    .resources-intro {
+      margin-bottom: 32px;
+    }
+
+    .resources-intro h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--bg-dark);
+      margin-bottom: 8px;
+    }
+
+    .resources-intro p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--bg-dark);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 22px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+
+    .media-label {
+      font-weight: 600;
+      color: var(--bg-dark);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background-color: #000;
+      margin-bottom: 24px;
+      border: 1px solid var(--border-color);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .doc-wrapper {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      background-color: #f1f5f9;
+      margin-bottom: 12px;
+    }
+
+    .doc-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .link-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 720px) {
+      .element {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+      .tab-switcher {
+        margin-top: -24px;
+      }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    footer a {
+      color: var(--primary);
+    }
+  </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">EK.</div>
-        <ul class="nav-links">
-            <li><a href="https://edkingportfolio.github.io/resume/">Resume</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#teaching">Teaching</a></li>
-            <li><a href="#education">Education</a></li>
-        </ul>
-    </nav>
+  <!-- Hero Header -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Secondary English Language Arts</span>
+      <h1>Ed King</h1>
+      <p>Quality Standards evidence &amp; classroom course resources</p>
+    </div>
+  </header>
 
-    <header>
-        <h1>Edward King, M.Ed.</h1>
-        <p class="subtitle">Software Engineer & Educator</p>
-        <p style="max-width: 700px; margin: 0 auto 2rem;">
-            Software engineer with 5+ years’ experience in C++, Python, and web development. 
-            Passionate about building complex systems and designing STEM curricula.
-        </p>
-        <div class="contact-bar">
-            <a href="mailto:ed.king4967@gmail.com">ed.king4967@gmail.com</a>
-            <span>•</span>
-            <a href="http://edkingportfolio.weebly.com/" target="_blank">Teaching Portfolio</a>
+  <!-- Tab Switcher -->
+  <div class="tab-switcher">
+    <button class="tab-btn active" data-tab="resources">Course Resources</button>
+    <button class="tab-btn" data-tab="quality">Quality Standards</button>
+  </div>
+
+  <div class="container">
+
+    <!-- ===================== TAB: QUALITY STANDARDS ===================== -->
+    <div class="tab-panel" id="tab-quality">
+
+      <nav class="jump-nav">
+        <a href="#standard-i">Standard I</a>
+        <a href="#standard-ii">Standard II</a>
+        <a href="#standard-iii">Standard III</a>
+        <a href="#standard-iv">Standard IV</a>
+      </nav>
+
+      <!-- STANDARD I -->
+      <section class="standard-block" id="standard-i">
+        <div class="standard-banner" style="background-image: url('images/quality/header-standard-i.jpg');">
+          <div class="standard-banner-inner">
+            <div class="standard-eyebrow">Quality Standard I</div>
+            <h2>Teachers demonstrate mastery of and pedagogical expertise in the content they teach.</h2>
+          </div>
         </div>
-    </header>
 
-    <section id="experience">
-        <h2 class="section-title">Engineering Experience</h2>
-        <div class="grid">
-            <div class="card">
-                <span class="date">2016 — 2017</span>
-                <h3>Web Developer @ In-Situ</h3>
-                <p>Aggregated water quality data for web applications using cloud infrastructure.</p>
-                <div class="tags">
-                    <span class="tag">Flask</span><span class="tag">Python</span><span class="tag">Angular</span><span class="tag">GCP</span>
-                </div>
+        <div class="card">
+          <p style="margin-bottom: 20px; color: var(--text-muted);">The secondary teacher has knowledge of literacy and mathematics and is an expert in his or her content endorsement area(s).</p>
+
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element A</span>
+              <p>Teachers provide instruction that is aligned with the Colorado Academic Standards and their district's organized plan of instruction.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>The standard that I taught was listed at the top of the lesson plan, and covered with the students at the beginning of the lesson. I explored the standard through enduring understandings, building background, and essential questions throughout the lesson.</p>
             </div>
-            <div class="card">
-                <span class="date">2014 — 2015</span>
-                <h3>Firmware Engineer @ NetApp</h3>
-                <p>Developed cloud backup solutions for large-scale storage systems.</p>
-                <div class="tags">
-                    <span class="tag">C++</span><span class="tag">Vim</span><span class="tag">Tmux</span>
-                </div>
+            <div class="element-media">
+              <a href="https://edkingportfolio.weebly.com/uploads/1/3/5/6/135628013/research_lesson_plan_1__standards__1st_page_.docx" target="_blank" class="btn-link">📄 Research Lesson Plan (Standards) ↗</a>
             </div>
-            <div class="card">
-                <span class="date">2009 — 2011</span>
-                <h3>Electrical Power Systems @ CU Space Grant</h3>
-                <p>Engineered power systems for research satellites in lower Earth orbit.</p>
-                <div class="tags">
-                    <span class="tag">C</span><span class="tag">C++</span><span class="tag">One Wire Bus</span><span class="tag">Soldering</span>
-                </div>
+          </div>
+
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element B</span>
+              <p>Teachers develop and implement lessons that connect to a variety of content areas/disciplines and emphasize literacy and mathematics.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>The first book we read in class was <em>The Curious Incident of the Dog in the Night-Time</em>. The book is about Christopher, a 15 year old on the autism spectrum who investigates the murder of a dog in his neighborhood. Since the way that Christopher thinks is very math-oriented, math is frequently worked into the narrative. The example here is from a discussion of the "Monty Hall Problem," a famous and apparently paradoxical probability problem. Reading <em>The Curious Incident</em> let students think about math in the context of literature.</p>
             </div>
+            <div class="element-media">
+              <img src="images/quality/i-curious-incident-math.png" alt="Monty Hall Problem discussion from The Curious Incident of the Dog in the Night-Time">
+            </div>
+          </div>
+
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element C</span>
+              <p>Teachers demonstrate knowledge of the content, central concepts, inquiry, appropriate evidence-based instructional practices, and specialized characteristics of the disciplines being taught.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>My experience as an English major with a focus in Creative Writing at the University of Colorado taught me the knowledge and skills of literature necessary to teach in an English classroom. I am a firm believer in the workshop model, an evidence-based instructional practice that lets students actively construct their own learning. I passed the Praxis with an above-average score.</p>
+            </div>
+            <div class="element-media">
+              <img src="images/quality/i-praxis-results.png" alt="Praxis results">
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-
-    <section id="teaching">
-        <h2 class="section-title">Teaching & Leadership</h2>
-        <div class="grid">
-            <div class="card">
-                <span class="date">2021 — Present</span>
-                <h3>STEM Teacher @ The STEAD School</h3>
-                <p>Teaching AP Computer Science, Engineering, and Programming. Designing project-based learning for creative technology.</p>
-                <div class="tags">
-                    <span class="tag">Java</span><span class="tag">Python</span><span class="tag">SketchUp</span>
-                </div>
-            </div>
-            <div class="card">
-                <span class="date">2011 — 2012</span>
-                <h3>Field Interviewer @ NapoNet (Peru)</h3>
-                <p>Community outreach and maintenance for a UN-commissioned wireless network in the Amazon.</p>
-                <div class="tags">
-                    <span class="tag">Networking</span><span class="tag">Spanish</span><span class="tag">Grant Writing</span>
-                </div>
-            </div>
+      <!-- STANDARD II -->
+      <section class="standard-block" id="standard-ii">
+        <div class="standard-banner" style="background-image: url('images/quality/header-standard-ii.jpg');">
+          <div class="standard-banner-inner">
+            <div class="standard-eyebrow">Quality Standard II</div>
+            <h2>Teachers establish a safe, inclusive and respectful learning environment for a diverse population of students.</h2>
+          </div>
         </div>
-    </section>
 
-    <section id="projects" style="background-color: #f8fafc;">
-        <h2 class="section-title">Key Projects</h2>
-        <div class="grid">
+        <div class="card">
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element A</span>
+              <p>Teachers foster a predictable learning environment characterized by acceptable student behavior and efficient use of time in which each student has a positive, nurturing relationship with caring adults and peers.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>Early on in first semester, in a unit on <em>Life of Pi</em>, I created an assignment to write about a memory in a memoir style, sticking to the facts, and a fantastical style, where you could make up whatever you wanted to tell the story. One student turned in a brilliant essay, but one that raised alarm bells for the mild suicidal ideation towards the end. I reached out to the student and we talked about the issue, and she later talked about it with her counselor. I think escalating the matter to professionals was the right course of action, and it helped me build a positive relationship with the student.</p>
+            </div>
+            <div class="element-media">
+              <div style="background:#f1f5f9; border-radius:10px; padding:16px; font-size:13px; color:var(--text-muted); border:1px solid var(--border-color);">
+                <em>[10/9/20 11:02 AM] King, Edward</em><br><br>
+                "Hi [student], I wanted to thank you for sharing your story again, it was very beautiful. I was a little bit alarmed by the last paragraph&mdash;while I know that it was about overcoming, the phrase 'I knew it was a matter of time before I got lucky' set off alarm bells. I mentioned it to [my mentor teacher] and he said to mention it to [the counselor], so I talked to her and she said she would bring it up with [the therapist]. Again, I admire your struggle and I'm glad you are working through it in your writing, and I don't want you to censor yourself in future writing. I just want you to know that we care about your safety and that is our priority."
+              </div>
+            </div>
+          </div>
 
-            <div class="card">
-                <h3>Game Development</h3>
-                <p>Created 3D game using Unity/C++ and used Python to feed real elevation data into the game world.</p><!--TODO: pictures/videos-->
-                <div class="tags">
-                    <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Data Analysis</span>
-                </div>
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element B</span>
+              <p>Teachers demonstrate an awareness of, a commitment to, and respect for multiple aspects of diversity, while working toward common goals as a community of learners.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>Polaris is a school that hosts a diverse community. The school is a safe space for students of all colors of the LGBTQ+ spectrum. For its role in building this community, the school was awarded with the Lavender Graduation Award from PFLAG. PFLAG is the first and largest organization for lesbian, gay, bisexual, transgender, and queer (LGBTQ+) people, their parents and families, and allies. The diversity of the students in the school is celebrated and cherished. Being in this environment has been a wonderful experience where I learn more about my students and myself every day.</p>
+              <p>For an in-class activity after watching the Spike Lee film <em>Do the Right Thing</em>, I created an activity for students to explore the history and context of social justice movements. Students could pick two out of four activities: one exploring the speeches of Martin Luther King and Malcolm X, who both feature prominently in the film; one exploring incidents of racial violence in the 1980s and today; one independently finding articles on the Civil Rights Movement and the Black Lives Matter movement; and one exploring the song lyrics of Public Enemy, who were a prominent part of the film, and Kendrick Lamar, an important part of the soundtrack of the Black Lives Matter movement. This activity was challenging given the sensitive nature of the subject matter, but I think that the students learned and grew from it.</p>
             </div>
-            <div class="card">
-                <h3>A Thousand and One Stories</h3>
-                <p>A literary journal hosting 100+ stories. Built using both WordPress and a custom Flask version.</p>
-                <div class="tags">
-                    <span class="tag">PHP</span><span class="tag">Python</span><span class="tag">AWS</span><span class="tag">Heroku</span>
-                </div>
+            <div class="element-media">
+              <img src="images/quality/ii-pflag.jpg" alt="PFLAG Lavender Graduation Award">
+              <a href="https://edkingportfolio.weebly.com/uploads/1/3/5/6/135628013/do_the_right_thing_social_justice_activity.docx" target="_blank" class="btn-link">📄 Do the Right Thing: Social Justice Activity ↗</a>
             </div>
-            <div class="card">
-                <h3>Guitar Synthesizer</h3>
-                <p>Digital signal processing project focusing on waveform generation.</p>
-                <div class="tags">
-                    <span class="tag">C++</span><span class="tag">Fourier Transform</span>
-                </div>
-            </div>
+          </div>
 
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element C</span>
+              <p>Teachers engage students as individuals, including those with diverse needs and interests, across a range of ability levels by adapting their teaching for the benefit of all students.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>Every classroom has students with diverse needs. Differentiation is important in every classroom. This is something it has been hard for me to learn and employ, but is one of the most rewarding aspects of teaching.</p>
+            </div>
+            <div class="element-media">
+              <img src="images/quality/ii-differentiation.png" alt="Differentiation strategies">
+            </div>
+          </div>
+
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element D</span>
+              <p>Teachers work collaboratively with the families and/or significant adults for the benefit of students.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>For the second unit of my 9th grade English class I decided to have the students read a choice book. Research shows this is an effective way to build advanced literacy in teens. In order to get buy-in from the parents, I decided to send out an email detailing the unit, some of the books their kids might want to buy, and books we had in the classroom for students for whom it was a difficulty to buy books. Working collaboratively with the parents in this way will help to build success for the students.</p>
+            </div>
+            <div class="element-media">
+              <img src="images/quality/ii-parent-email.png" alt="Parent email regarding choice books">
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-
-    <section id="education">
-        <div class="grid">
-            <div>
-                <h2 class="section-title">Education</h2>
-                <div class="edu-item">
-                    <h4>Colorado State University</h4>
-                    <p>M.Ed. + Teacher Licensure (GPA 4.0)</p>
-                </div>
-                <div class="edu-item">
-                    <h4>University of Colorado Boulder</h4>
-                    <p>B.A. English & Minor in Electrical Engineering</p>
-                </div>
-            </div>
-            <div>
-                <h2 class="section-title">Languages</h2>
-                <p><strong>English</strong> (Native)</p>
-                <p><strong>Spanish</strong> (Intermediate)</p>
-                <p><strong>Chinese</strong> (Intermediate - Xi'an Jiaotong University)</p>
-            </div>
+      <!-- STANDARD III -->
+      <section class="standard-block" id="standard-iii">
+        <div class="standard-banner" style="background-image: url('images/quality/header-standard-iii.jpg');">
+          <div class="standard-banner-inner">
+            <div class="standard-eyebrow">Quality Standard III</div>
+            <h2>Teachers plan and deliver effective instruction and create an environment that facilitates learning for their students.</h2>
+          </div>
         </div>
-    </section>
+
+        <div class="card">
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element A</span>
+              <p>Teachers demonstrate knowledge about the ways in which learning takes place, including the levels of intellectual, physical, social, and emotional development of their students.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>When reading <em>To Kill a Mockingbird</em>, one student expressed discomfort at the racial content of the book and the discussions we were having. Some discomfort can be necessary for learning, but it is not acceptable for a student to feel unsafe in the classroom. While changing the book or the subject matter at this point in the unit was not feasible, I took the steps of reminding the students to be respectful and open minded each discussion, to discuss rather than debate, and to monitor specific students who were an issue. The most important step I took was checking in with the student who was feeling uncomfortable. Finally, I have been reflecting on my decision to teach <em>To Kill a Mockingbird</em>. While I believe it is a great piece of literature and worth teaching, others have brought to my attention that it would be better to teach works written by Black authors when dealing with racism. Others have also pointed out that the book may make Black students feel unduly uncomfortable or unsafe, and that the book contains white savior tropes. Therefore, I will teach more inclusive works in the future and consider whether <em>To Kill a Mockingbird</em> is a good choice in my curriculum.</p>
+            </div>
+            <div class="element-media">
+              <img src="images/quality/iii-elena-part.png" alt="Student discussion excerpt">
+            </div>
+          </div>
+
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element B</span>
+              <p>Teachers use formal and informal methods to assess student learning, provide feedback, and use results to inform planning and instruction.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>In the classroom, it is important to have methods of assessment that are formal, informal, and in between. Formal assessments that I have used include character sketches and three paragraph essays. Informal assessments include discussions and informal quizzes. No Red Ink is a solution that is in between formal and informal&mdash;it can be completed quickly and does not "feel" like an assessment, but it provides data I can use to modify my instruction. In this case, it tells me that most of my students master the comma skills, but one student needs targeted instruction.</p>
+            </div>
+            <div class="element-media">
+              <img src="images/quality/iii-noredink.png" alt="No Red Ink assessment data">
+            </div>
+          </div>
+
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element C</span>
+              <p>Teachers integrate and utilize appropriate available technology to engage students in authentic learning experiences.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>Kahoot is a great platform to drive student engagement, assess students' level of knowledge, and to do an activity that is more fun to students than reading and writing. The competitive nature drives students to do better. During my whole class reading unit, on <em>The Curious Incident of the Dog in the Night-Time</em>, we used Kahoots as both a break between more academic activities and as a tool to assess whether students were doing the reading in class. In this case, with the student in 7th place, I concluded that they were struggling with the reading and needed more attention.</p>
+            </div>
+            <div class="element-media">
+              <img src="images/quality/iii-kahoot.png" alt="Kahoot leaderboard">
+            </div>
+          </div>
+
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element D</span>
+              <p>Teachers establish and communicate high expectations and use processes to support the development of critical-thinking and problem-solving skills.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>When watching <em>West Side Story</em> in class, I gave students the assignment to write a review of the film. Students could analyze the sexism and racism inherent in the film as well as the music, dance, script, and other elements of the film. I wanted students to develop critical thinking skills to form their own opinion of the film. I set high expectations for them to do so. This became a challenge because of my desire to teach the positives of the film in addition to the negatives, while students overwhelmingly saw the negatives. It gave me experience in respecting and validating students' opinions even when they differ from mine. In future, if I were to teach this film, I would be more up front about the sexism and racism in the film and teach it as a product of its time, while encouraging students to pick out several positives of the film existing at the same time as the negatives.</p>
+            </div>
+            <div class="element-media">
+              <a href="https://edkingportfolio.weebly.com/uploads/1/3/5/6/135628013/west_side_story_review_assignment.docx" target="_blank" class="btn-link">📄 West Side Story Review Assignment ↗</a>
+            </div>
+          </div>
+
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element E</span>
+              <p>Teachers provide students with opportunities to work in teams and develop leadership.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>Group work and teamwork are essential skills that students will carry forward into adult life. I provided multiple opportunities throughout the semester for students to work together on projects. One opportunity was to work on a script and video together to discuss the question "what makes a blockbuster?" One classmate could take a leadership role and divide up the tasks among the group. This project also allowed students to work together creatively with technology, where most students collaborated using the WeVideo platform. Working together on the project helped them develop the essential skills of communication and collaboration.</p>
+            </div>
+            <div class="element-media">
+              <img src="images/quality/iii-group-work.png" alt="Students working together on blockbuster assignment">
+            </div>
+          </div>
+
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element F</span>
+              <p>Teachers model and promote effective communication.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>Microsoft Teams is an important medium of communication in the classroom. It allows me to communicate with students over video and chat. On Fridays, when I catch up on grading, I often have questions for students regarding missing or incomplete assignments. I am able to communicate clearly through Teams with students who need to turn in assignments, or call them over voice or video to assist them when they need help.</p>
+            </div>
+            <div class="element-media">
+              <img src="images/quality/iii-teams-conversation.png" alt="Microsoft Teams conversation with a student">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STANDARD IV -->
+      <section class="standard-block" id="standard-iv">
+        <div class="standard-banner" style="background-image: url('images/quality/header-standard-iv.jpg');">
+          <div class="standard-banner-inner">
+            <div class="standard-eyebrow">Quality Standard IV</div>
+            <h2>Teachers demonstrate professionalism through ethical conduct, reflection, and leadership.</h2>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element A</span>
+              <p>Teachers demonstrate high standards for professional conduct.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>I strove to be professional in all my conduct. This starts with dressing professionally and extends to my conduct in every aspect of the classroom, from my demeanor to my communication with students. The school where I teach is in general less formal than other schools&mdash;teachers go by their first name and dress is often more casual than other schools. However, professionalism is still vital in the classroom, and I strive to model it in my actions and my words.</p>
+            </div>
+            <div class="element-media">
+              <img src="images/quality/iv-professionalism.jpg" alt="Professional conduct in the classroom">
+            </div>
+          </div>
+
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element B</span>
+              <p>Teachers link professional growth to their professional goals.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>For my upcoming position at the STEAD School, I will be teaching music as well as English. As I have not taught music before, I decided to sign up for professional development for music. The professional development will focus on an online songwriting program. I am experienced with several digital audio editing programs, and it will be good to learn one that is accessible to all students. Overall, I feel that this professional development will lead to my being a better teacher in my role in the music program at STEAD.</p>
+            </div>
+            <div class="element-media">
+              <img src="images/quality/iv-little-kids-rock.png" alt="Little Kids Rock songwriting program">
+            </div>
+          </div>
+
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element C</span>
+              <p>Teachers are able to respond to a complex, dynamic environment.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>COVID turned the school year on its head. We started in remote learning and moved to hybrid learning midway through the semester. This meant working in two paradigms that were unfamiliar even to the experienced staff at the school. We had to adapt to making material for synchronous and asynchronous class. The chart in the linked document shows my plan for the first week of school in hybrid learning. Students were instructed to read and complete work asynchronously, and join in class discussions and workshops synchronously. There were many bumps in the road, but going through the process made me a stronger teacher.</p>
+            </div>
+            <div class="element-media">
+              <a href="https://edkingportfolio.weebly.com/uploads/1/3/5/6/135628013/first_week_schedule.docx" target="_blank" class="btn-link">📄 First Week Hybrid Schedule ↗</a>
+            </div>
+          </div>
+
+          <div class="element">
+            <div class="element-text">
+              <span class="element-tag">Element D</span>
+              <p>Teachers demonstrate leadership in the school, the community, and the teaching profession.</p>
+              <strong class="rationale-label">Rationale</strong>
+              <p>Based on research around the efficacy of choosing books to read in the classroom, I took it upon myself to design a choice book unit. In the unit, students read a book of their choosing and completed writing and reading tasks throughout the unit. Choice book reading has been shown to develop fluency, as students can read books they enjoy rather than having to read the books the teacher assigns. It allows them to read a greater volume and develop stamina as readers. Taking a leadership role with this unit helped me develop as a teacher and understand the demands of leading a class through unknown territory.</p>
+            </div>
+            <div class="element-media">
+              <a href="https://edkingportfolio.weebly.com/uploads/1/3/5/6/135628013/9th_grade_choice_book_assignment.pdf" target="_blank" class="btn-link">📄 9th Grade Choice Book Assignment ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ===================== TAB: COURSE RESOURCES ===================== -->
+    <div class="tab-panel active" id="tab-resources">
+
+      <div class="resources-intro">
+        <h2>ELA Course Resources</h2>
+        <p>Unit materials, video instruction, and assignment sheets.</p>
+      </div>
+
+      <!-- Section 1: Life of Pi Unit -->
+      <section class="card">
+        <h2 class="section-title">Life of Pi Unit</h2>
+
+        <span class="media-label">🎥 Lesson Video</span>
+        <div class="video-wrapper">
+          <iframe
+            src="https://drive.google.com/file/d/1F3EKgdAeUUDkPRebBg3NRuIAG28WEbsk/preview"
+            allow="autoplay"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <span class="media-label">📄 Assignment &amp; Rubric Resources</span>
+        <div class="link-group">
+          <a href="https://docs.google.com/document/d/1anZf2YyVEWeenI1J4yIzZ7hgejdVlxo-QzxDTZkjiKI/edit?tab=t.0" target="_blank" class="btn-link">
+            📄 Life of Pi Assignment Sheet ↗
+          </a>
+          <a href="https://docs.google.com/document/d/1p_EzeCigPP-hAb-qIYoxtZT6ELFw2zPQhAMApHYkq3w/edit?tab=t.0" target="_blank" class="btn-link">
+            📊 Grading Rubric ↗
+          </a>
+        </div>
+      </section>
+
+      <!-- Section 2: Choice Reading Assignment Sheet -->
+      <section class="card">
+        <h2 class="section-title">Choice Reading Assignment Sheet</h2>
+
+        <div class="doc-wrapper">
+          <iframe
+            src="https://drive.google.com/file/d/1kDrJHxnVsRbkL8Bn25VJtrB8v9jtqoW7/preview">
+          </iframe>
+        </div>
+
+        <a href="https://drive.google.com/file/d/1kDrJHxnVsRbkL8Bn25VJtrB8v9jtqoW7/view?usp=sharing" target="_blank" class="btn-link">
+          Open Choice Reading Assignment Sheet in Drive ↗
+        </a>
+      </section>
+
+    </div>
 
     <footer>
-        <p>&copy; 2023 Edward King. Built for performance and clarity.</p>
+      <p>© Ed King | Teaching Portfolio &middot; source: <a href="https://edkingportfolio.weebly.com" target="_blank">edkingportfolio.weebly.com</a></p>
     </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var tabButtons = document.querySelectorAll('.tab-btn');
+      var tabPanels = document.querySelectorAll('.tab-panel');
+
+      function activateTab(name) {
+        tabButtons.forEach(function (btn) {
+          btn.classList.toggle('active', btn.dataset.tab === name);
+        });
+        tabPanels.forEach(function (panel) {
+          panel.classList.toggle('active', panel.id === 'tab-' + name);
+        });
+      }
+
+      tabButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          activateTab(btn.dataset.tab);
+          history.replaceState(null, '', '#' + btn.dataset.tab);
+        });
+      });
+
+      // Jump-nav links inside the Quality tab should activate that tab first
+      document.querySelectorAll('.jump-nav a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          activateTab('quality');
+        });
+      });
+
+      var initial = window.location.hash.replace('#', '');
+      if (initial === 'quality') {
+        activateTab('quality');
+      }
+    })();
+  </script>
 
 </body>
 </html>
