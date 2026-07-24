@@ -370,9 +370,45 @@
 
     .link-group {
       display: flex;
+      flex-direction: column;
       gap: 12px;
-      flex-wrap: wrap;
       margin-top: 16px;
+    }
+
+    .thumb-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px;
+      background-color: #f1f5f9;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    .thumb-link:hover {
+      background-color: #e0e7ff;
+      border-color: #c7d2fe;
+    }
+
+    .thumb-link img {
+      width: 90px;
+      height: 116px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background-color: #fff;
+      flex-shrink: 0;
+    }
+
+    .thumb-link span {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 13px;
     }
 
     @media (max-width: 720px) {
@@ -701,7 +737,7 @@
       <section class="card">
         <h2 class="section-title">Life of Pi Unit</h2>
 
-        <span class="media-label">🎥 Lesson Video</span>
+        <span class="media-label">Lesson Video</span>
         <div class="video-wrapper">
           <iframe
             src="https://drive.google.com/file/d/1F3EKgdAeUUDkPRebBg3NRuIAG28WEbsk/preview"
@@ -710,13 +746,11 @@
           </iframe>
         </div>
 
-        <span class="media-label">📄 Assignment &amp; Rubric Resources</span>
+        <span class="media-label">Assignment &amp; Rubric Resources:</span>
         <div class="link-group">
-          <a href="https://docs.google.com/document/d/1anZf2YyVEWeenI1J4yIzZ7hgejdVlxo-QzxDTZkjiKI/edit?tab=t.0" target="_blank" class="btn-link">
-            📄 Life of Pi Assignment Sheet ↗
-          </a>
-          <a href="https://docs.google.com/document/d/1p_EzeCigPP-hAb-qIYoxtZT6ELFw2zPQhAMApHYkq3w/edit?tab=t.0" target="_blank" class="btn-link">
-            📊 Grading Rubric ↗
+          <a href="https://docs.google.com/document/d/1VJdG-sQDzseyXT2pDl0UBEatWk8E1GJ05d0dxyi0JcM/edit?usp=sharing" target="_blank" class="thumb-link">
+            <img src="https://drive.google.com/thumbnail?id=1VJdG-sQDzseyXT2pDl0UBEatWk8E1GJ05d0dxyi0JcM&sz=w400" alt="Life of Pi Assignment & Rubric thumbnail">
+            <span>Life of Pi Assignment &amp; Rubric ↗</span>
           </a>
         </div>
       </section>
